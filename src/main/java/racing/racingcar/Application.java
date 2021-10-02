@@ -10,8 +10,6 @@ public class Application {
         String carList = "";
         int count = 0;
 
-        // TODO 구현 진행
-
         while(true) {
             System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분");
             carList = scanner.next();
@@ -28,6 +26,7 @@ public class Application {
         }
 
         // 멤버 파싱 및 Car List에 등록
+        // TODO
         String[] carArray = carList.split(",");
 
 

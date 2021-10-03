@@ -2,12 +2,17 @@ package racing.racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Validation {
 
+    private static final String NUMBER_REGULAR = "^[0-9]*$";
+    public static final Pattern validPattern = Pattern.compile(NUMBER_REGULAR);
+
     public List<Car> inputValidation(String cars, int count) {
         
-        // 자동차 입력 검증 & 여기 넘기기
+        // 자동차 입력 검증 & 이 값 넘기기
         // TODO
         List<Car> carList = carValidation(cars);
 
@@ -48,6 +53,8 @@ public class Validation {
     }
 
     public void countValidation(int count) {
-
+        if(count < 1) {
+            throw new IllegalStateException("[ERROR] 0이상의 자연수만 허용합니다.");
+        }
     }
 }

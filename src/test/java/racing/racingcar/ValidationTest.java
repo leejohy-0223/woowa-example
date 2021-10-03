@@ -1,15 +1,13 @@
 package racing.racingcar;
 
-import calculator.Validator;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.in;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ValidationTest {
@@ -91,8 +89,25 @@ class ValidationTest {
             v.inputValidation(input2, 1);
         });
 
+        assertThrows(IllegalStateException.class, () -> {
+            v.inputValidation(input3, -1);
+        });
+
         assertThat(v.inputValidation(input3, 1).size()).isEqualTo(3);
+    }
 
+    @Test
+    void count_validation_테스트() {
+        // given
+        Validation v = new Validation();
+        int count = 80;
+        int count1 = -1;
 
+        // when & then
+        v.countValidation(count);
+
+        assertThrows(IllegalStateException.class, () -> {
+            v.countValidation(count1);
+        });
     }
 }

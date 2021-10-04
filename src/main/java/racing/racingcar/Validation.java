@@ -2,7 +2,6 @@ package racing.racingcar;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Validation {
@@ -13,7 +12,6 @@ public class Validation {
     public List<Car> inputValidation(String cars, int count) {
         
         // 자동차 입력 검증 & 이 값 넘기기
-        // TODO
         List<Car> carList = carValidation(cars);
 
         // 입력 숫자 검증

@@ -1,5 +1,6 @@
 package racing.racingcar;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Application {
@@ -8,6 +9,7 @@ public class Application {
         Validation valid = new Validation();
 
         String carList = "";
+        List<Car> validCarList;
         int count = 0;
 
         while(true) {
@@ -16,7 +18,7 @@ public class Application {
             System.out.println("시도할 횟수는 몇 회인가요?");
             count = scanner.nextInt();
             try {
-                valid.inputValidation(carList, count);
+                validCarList = valid.inputValidation(carList, count);
             } catch (Exception e) {
                 e.printStackTrace();
                 continue;
@@ -24,16 +26,8 @@ public class Application {
             // 검증 완료 시 break
             break;
         }
-
-        // 멤버 파싱 및 Car List에 등록
+        System.out.println("\n실행 결과");
         // TODO
-        String[] carArray = carList.split(",");
-
-
-//        System.out.println("실행 결과");
-//        for (int i = 0; i < count; i++) {
-//
-//        }
-
+        new ExecuteGame(validCarList, count).start();
     }
 }
